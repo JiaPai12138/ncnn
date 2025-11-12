@@ -26,9 +26,7 @@ jobs:
     - name: Prepare Vulkan SDK
       uses: humbletim/setup-vulkan-sdk@v1
       with:
-        vulkan-query-version: latest
-        vulkan-components: Vulkan-Headers, Vulkan-Loader, Glslang, SPIRV-Reflect, SPIRV-Headers
-        vulkan-use-cache: true
+        vulkan-version: latest
 
     - name: install-deps
       run: |
