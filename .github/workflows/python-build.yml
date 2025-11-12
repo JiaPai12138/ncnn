@@ -35,16 +35,16 @@ jobs:
         python -m pip install --upgrade pip
         pip install pytest setuptools wheel
 
-    - name: build
+    - name: build ncnn
       run: |
         mkdir build
         cd build
         cmake -A x64 -DCMAKE_BUILD_TYPE=Release -DNCNN_VULKAN=ON -DNCNN_PYTHON=ON -DNCNN_AVX2=ON -DNCNN_BUILD_TOOLS=OFF -DNCNN_BUILD_EXAMPLES=OFF ..
         cmake --build . --config Release -j 4
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v5
-        with:
-          name: ncnn-py${{ matrix.python-version }}
-          path: |
-            build
+    - name: Upload artifact
+      uses: actions/upload-artifact@v5
+      with:
+        name: ncnn-py${{ matrix.python-version }}
+        path: |
+          build
